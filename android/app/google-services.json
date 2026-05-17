@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "381082097744",
+    "project_id": "rovix-store-app",
+    "storage_bucket": "rovix-store-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381082097744:android:9e5929b70cd784c519d955",
+        "android_client_info": {
+          "package_name": "com.example.rovix"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_UcCWAr1jlKpF6utbgaYJIX2xRH0oHs0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
