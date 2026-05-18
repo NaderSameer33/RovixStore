@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:rovix/core/style/theme/color_extenstion.dart';
 
 extension ContextExt on BuildContext {
+  ColorExtenstion get color => Theme.of(this).extension<ColorExtenstion>()!;
+
   void pushPage({required String routeName, Object? arguments}) {
     Navigator.of(this).pushNamed(routeName, arguments: arguments);
   }

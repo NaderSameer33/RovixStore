@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rovix/core/extensisons/context_ext.dart';
 
 class Test2 extends StatelessWidget {
   const Test2({super.key});
@@ -13,7 +14,12 @@ class Test2 extends StatelessWidget {
           children: [
             Text('data'),
 
-            ElevatedButton(onPressed: () {}, child: Text('Ahmed')),
+            ElevatedButton(
+              onPressed: () {
+                context.popPage();
+              },
+              child: Text('Ahmed'),
+            ),
           ],
         ),
       ),

@@ -8,6 +8,7 @@ class Test1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.green,
       appBar: AppBar(title: Text('test1')),
       body: Center(
         child: Column(
@@ -19,7 +20,12 @@ class Test1 extends StatelessWidget {
               onPressed: () {
                 context.pushPage(routeName: AppRoutes.test2);
               },
-              child: Text('nader'),
+              child: Text(
+                'nader',
+                style: TextStyle(
+                  color: context.color.mainColro,
+                ),
+              ),
             ),
           ],
         ),
