@@ -17,7 +17,8 @@ dependencies:
   flutter_dotenv: ^6.0.1
   flutter_screenutil: ^5.9.3
   firebase_core: ^4.9.0
-  easy_localization: ^3.0.8
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:
@@ -36,7 +37,6 @@ flutter:
     - .env.prod
     - assets/images/
     - assets/fonts/
-    - assets/lang/
 
   fonts:
     - family: Cairo
@@ -73,3 +73,5 @@ flutter_native_splash:
   android_12:
     color: "#FFFFFF"
     image: assets/images/launch_icon.png
+flutter_intl:
+  enabled: true

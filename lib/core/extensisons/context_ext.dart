@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:rovix/core/style/theme/color_extenstion.dart';
+import 'package:rovix/core/style/theme/image_extenstion.dart';
 
 extension ContextExt on BuildContext {
   ColorExtenstion get color => Theme.of(this).extension<ColorExtenstion>()!;
-
+  ImageExtenstion get image => Theme.of(this).extension<ImageExtenstion>()!;
   void pushPage({required String routeName, Object? arguments}) {
     Navigator.of(this).pushNamed(routeName, arguments: arguments);
   }
