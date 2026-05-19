@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rovix/core/app/connectivity_controller.dart';
@@ -20,13 +21,20 @@ class RovixStoreApp extends StatelessWidget {
           splitScreenMode: true,
           minTextAdapt: true,
 
-          child: MaterialApp(
-            themeAnimationDuration: Duration(milliseconds: 500),
-            themeAnimationCurve: Curves.fastOutSlowIn,
-            theme: CustomThemeData.darkTheme,
-            onGenerateRoute: AppRoutes().onGenerateRoute,
-            home: value ? Test1() : NoNetworkView(),
-            debugShowCheckedModeBanner: EnvVariables().depugMode,
+          child: GestureDetector(
+            onTap: () => FocusManager.instance.primaryFocus!.unfocus(),
+            child: MaterialApp(
+              locale: context.locale,
+              supportedLocales: context.supportedLocales,
+              localizationsDelegates: context.localizationDelegates,
+
+              themeAnimationDuration: Duration(milliseconds: 500),
+              themeAnimationCurve: Curves.fastOutSlowIn,
+              theme: CustomThemeData.darkTheme,
+              onGenerateRoute: AppRoutes().onGenerateRoute,
+              home: value ? Test1() : NoNetworkView(),
+              debugShowCheckedModeBanner: EnvVariables().depugMode,
+            ),
           ),
         );
       },

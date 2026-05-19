@@ -17,6 +17,7 @@ dependencies:
   flutter_dotenv: ^6.0.1
   flutter_screenutil: ^5.9.3
   firebase_core: ^4.9.0
+  easy_localization: ^3.0.8
 
 dev_dependencies:
   flutter_test:
@@ -35,6 +36,7 @@ flutter:
     - .env.prod
     - assets/images/
     - assets/fonts/
+    - assets/lang/
 
   fonts:
     - family: Cairo
