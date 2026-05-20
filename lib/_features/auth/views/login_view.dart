@@ -16,8 +16,7 @@ class LoginView extends StatelessWidget {
           gradient: LinearGradient(
             colors: [
               context.color.bluePinkLight!,
-              context.color.bluePinkLight!,
-              context.color.bluePinkLight!,
+
               context.color.bluePinkLight!,
             ],
           ),

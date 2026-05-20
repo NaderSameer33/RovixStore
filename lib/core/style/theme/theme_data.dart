@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rovix/core/style/colors/dark_color.dart';
 import 'package:rovix/core/style/colors/light_color.dart';
 import 'package:rovix/core/style/fonts/font_familiy_helper.dart';
