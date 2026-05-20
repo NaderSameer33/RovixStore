@@ -15,7 +15,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   // todo init for a shared prefreces
-  SharedPref.init();
+  SharedPref().init();
   // todo this for observer state in bloc  pattern
   Bloc.observer = BlocObserverImplemenation();
   // todo env file for secure a baseUrl and other
