@@ -1,36 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:rovix/core/style/images/app_image.dart';
 
-class ImageExtenstion extends ThemeExtension<ImageExtenstion> {
-  final String? mainImage;
+class MyAssets extends ThemeExtension<MyAssets> {
+  const MyAssets({
+    required this.bigNavBar,
+    required this.homeBg,
+  });
 
-  const ImageExtenstion({this.mainImage});
+  final String? bigNavBar;
+  final String? homeBg;
 
   @override
-  ThemeExtension<ImageExtenstion> copyWith({String? mainImage}) {
-    return ImageExtenstion(mainImage: mainImage ?? this.mainImage);
+  ThemeExtension<MyAssets> copyWith({
+    String? bigNavBar,
+    String? homeBg,
+  }) {
+    return MyAssets(
+      bigNavBar: bigNavBar,
+      homeBg: homeBg,
+    );
   }
 
   @override
-  ThemeExtension<ImageExtenstion> lerp(
-    covariant ThemeExtension<ImageExtenstion> other,
+  ThemeExtension<MyAssets> lerp(
+    covariant ThemeExtension<MyAssets>? other,
     double t,
   ) {
-    if (other is! ImageExtenstion) {
-      if (t < .5) {
-        return this;
-      } else {
-        return other;
-      }
+    if (other is! MyAssets) {
+      return this;
     }
-
-    return ImageExtenstion(mainImage: mainImage);
+    return MyAssets(
+      bigNavBar: bigNavBar,
+      homeBg: homeBg,
+    );
   }
 
-  static ImageExtenstion dark = ImageExtenstion(
-    mainImage: AppImage.emptyScreen,
+  static  MyAssets dark = MyAssets(
+    bigNavBar: AppImages.bigIconNavBarDark,
+    homeBg: AppImages.homeBgDark,
   );
-  static ImageExtenstion light = ImageExtenstion(
-    mainImage: AppImage.pageUnderBuild,
+  static const MyAssets light = MyAssets(
+    bigNavBar: AppImages.bigIconNavBarLight,
+    homeBg: AppImages.homeBgLight,
   );
 }

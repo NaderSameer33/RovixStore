@@ -3,8 +3,9 @@ import 'package:rovix/core/style/theme/color_extenstion.dart';
 import 'package:rovix/core/style/theme/image_extenstion.dart';
 
 extension ContextExt on BuildContext {
-  ColorExtenstion get color => Theme.of(this).extension<ColorExtenstion>()!;
-  ImageExtenstion get image => Theme.of(this).extension<ImageExtenstion>()!;
+  TextStyle get textStyle => Theme.of(this).textTheme.displaySmall!;
+  MyColors get color => Theme.of(this).extension<MyColors>()!;
+  MyAssets get image => Theme.of(this).extension<MyAssets>()!;
   void pushPage({required String routeName, Object? arguments}) {
     Navigator.of(this).pushNamed(routeName, arguments: arguments);
   }

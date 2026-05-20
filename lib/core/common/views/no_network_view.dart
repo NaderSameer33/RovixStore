@@ -12,7 +12,7 @@ class NoNetworkView extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-              AppImage.noNetworkImage,
+              AppImages.noNetwork,
             ),
             fit: BoxFit.fill,
           ),

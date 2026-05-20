@@ -19,6 +19,7 @@ dependencies:
   firebase_core: ^4.9.0
   flutter_localizations:
     sdk: flutter
+  animate_do: ^5.1.0
 
 dev_dependencies:
   flutter_test:
@@ -36,6 +37,8 @@ flutter:
     - .env.dev
     - .env.prod
     - assets/images/
+    - assets/svg/
+    - assets/icons/
     - assets/fonts/
 
   fonts:
