@@ -8,27 +8,44 @@ import 'package:rovix/core/extensisons/context_ext.dart';
 import 'package:rovix/core/utils/app_regex.dart';
 import 'package:rovix/generated/l10n.dart';
 
-class LoginTextFormFild extends StatefulWidget {
-  const LoginTextFormFild({super.key});
+class RegisterTextFormFild extends StatefulWidget {
+  const RegisterTextFormFild({super.key});
 
   @override
-  State<LoginTextFormFild> createState() => _LoginTextFormFildState();
+  State<RegisterTextFormFild> createState() => _RegisterTextFormFildState();
 }
 
-class _LoginTextFormFildState extends State<LoginTextFormFild> {
+class _RegisterTextFormFildState extends State<RegisterTextFormFild> {
+  final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  final key = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
   bool isVisible = false;
-
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: key,
+      key: formKey,
       child: Column(
         children: [
           CustomFadeInRight(
-            duration: 400,
+            duration: 500,
+            child: CustomTextField(
+              controller: nameController,
+              hintText: S.of(context).full_name,
+              keyboardType: TextInputType.name,
+              validator: (value) {
+                if (value == null || value.isEmpty || value.length < 4) {
+                  return S.of(context).valid_name;
+                }
+                return null;
+              },
+            ),
+          ),
+          SizedBox(
+            height: 15.h,
+          ),
+          CustomFadeInLeft(
+            duration: 500,
             child: CustomTextField(
               controller: emailController,
               hintText: S.of(context).your_email,
@@ -37,33 +54,36 @@ class _LoginTextFormFildState extends State<LoginTextFormFild> {
                 if (!AppRegex.isEmailValid(emailController.text)) {
                   return S.of(context).valid_email;
                 }
+
                 return null;
               },
             ),
           ),
           SizedBox(
-            height: 30.h,
+            height: 15.h,
           ),
+
           CustomFadeInLeft(
-            duration: 400,
+            duration: 500,
             child: CustomTextField(
               controller: passwordController,
-              suffixIcon: IconButton(
-                onPressed: () {
-                  isVisible = !isVisible;
-                  setState(() {});
-                },
-                icon: Icon(
-                  isVisible ? Icons.visibility : Icons.visibility_off,
-                ),
-                color: context.color.textColor,
-              ),
-              obscureText: !isVisible,
-
               hintText: S.of(context).password,
               keyboardType: TextInputType.visiblePassword,
+              obscureText: !isVisible,
+              suffixIcon: IconButton(
+                onPressed: () {
+                  setState(() {
+                    isVisible = !isVisible;
+                  });
+                },
+
+                icon: Icon(
+                  isVisible ? Icons.visibility : Icons.visibility_off,
+                  color: context.color.textColor,
+                ),
+              ),
               validator: (value) {
-                if (!AppRegex.isPasswordValid(passwordController.text)) {
+                if (value == null || value.isEmpty || value.length < 6) {
                   return S.of(context).valid_passwrod;
                 }
                 return null;
@@ -75,14 +95,17 @@ class _LoginTextFormFildState extends State<LoginTextFormFild> {
             height: 30.h,
           ),
           CustomFadeInDown(
-
             duration: 400,
+
             child: CustomLinearButton(
-              height: 50.h,
               width: MediaQuery.of(context).size.width,
-              onPressed: () {},
+              height: 50.h,
+              onPressed: () {
+                if (formKey.currentState!.validate()) {}
+              },
+
               child: AppText(
-                text: S.of(context).login,
+                text: S.of(context).sign_up,
                 style: context.textStyle.copyWith(
                   fontWeight: FontWeight.bold,
                   fontSize: 24.sp,

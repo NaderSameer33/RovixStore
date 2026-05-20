@@ -6,6 +6,7 @@ import 'package:rovix/core/style/theme/color_extenstion.dart';
 import 'package:rovix/core/style/theme/image_extenstion.dart';
 
 abstract class CustomThemeData {
+  static String fontFamily = FontFamiliyHelper.getLocalized();
   static ThemeData get darkTheme {
     return ThemeData(
       scaffoldBackgroundColor: ColorsDark.mainColor,
@@ -20,7 +21,7 @@ abstract class CustomThemeData {
           fontSize: 14,
           color: ColorsDark.white,
 
-          fontFamily: FontFamiliyHelper.getLocalized(),
+          fontFamily: fontFamily,
         ),
       ),
     );
@@ -39,7 +40,7 @@ abstract class CustomThemeData {
           fontSize: 14,
           color: ColorsLight.black,
 
-          fontFamily: FontFamiliyHelper.getLocalized(),
+          fontFamily: fontFamily,
         ),
       ),
     );

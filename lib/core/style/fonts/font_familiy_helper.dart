@@ -3,7 +3,7 @@ class FontFamiliyHelper {
 
   static final String poppinsEnglish = 'Poppins';
 
- static  String getLocalized() {
+  static String getLocalized() {
     final currentLanguage = 'ar';
     if (currentLanguage == 'ar') {
       return cairoArbic;
