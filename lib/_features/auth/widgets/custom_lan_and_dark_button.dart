@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rovix/core/animation/animate_do.dart';
+import 'package:rovix/core/app/app_cubit/app_cubit.dart';
 import 'package:rovix/core/common/widgets/app_text.dart';
 import 'package:rovix/core/common/widgets/custom_linear_button.dart';
 import 'package:rovix/core/extensisons/context_ext.dart';
@@ -13,17 +15,25 @@ class CustomLanAndDarkButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<AppCubit>();
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         CustomFadeInRight(
           duration: 400,
-          child: CustomLinearButton(
-            onPressed: () {},
-            child: Icon(
-              Icons.light_mode_rounded,
-              color: Colors.white,
-            ),
+          child: BlocBuilder(
+            bloc: cubit,
+            builder: (context, state) {
+              return CustomLinearButton(
+                onPressed: cubit.changeTheme,
+                child: Icon(
+                  cubit.isDark
+                      ? Icons.light_mode_rounded
+                      : Icons.dark_mode_rounded,
+                  color: Colors.white,
+                ),
+              );
+            },
           ),
         ),
         CustomFadeInLeft(

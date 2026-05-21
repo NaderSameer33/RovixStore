@@ -18,31 +18,31 @@ class SharedPref {
   }
 
   String? getString({required String key}) {
-    return _sharedPreferences.getString(key) ?? '';
+    return _sharedPreferences.getString(key) ;
   }
 
   Future<void> setBool({required String key, required bool value}) async {
     await _sharedPreferences.setBool(key, value);
   }
 
-  bool getBool({required String key}) {
-    return _sharedPreferences.getBool(key) ?? false;
+  bool? getBool({required String key}) {
+    return _sharedPreferences.getBool(key);
   }
 
   Future<void> setInt({required String key, required int value}) async {
     await _sharedPreferences.setInt(key, value);
   }
 
-  int getInt({required String key}) {
-    return _sharedPreferences.getInt(key) ?? 0;
+  int ?getInt({required String key}) {
+    return _sharedPreferences.getInt(key) ;
   }
 
   Future<void> setDouble({required String key, required double value}) async {
     await _sharedPreferences.setDouble(key, value);
   }
 
-  double getDouble({required String key}) {
-    return _sharedPreferences.getDouble(key) ?? 0;
+  double? getDouble({required String key}) {
+    return _sharedPreferences.getDouble(key) ;
   }
 
   Future<void> removeKey({required String key}) async {
