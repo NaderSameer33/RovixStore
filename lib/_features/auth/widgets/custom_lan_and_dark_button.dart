@@ -38,16 +38,21 @@ class CustomLanAndDarkButton extends StatelessWidget {
         ),
         CustomFadeInLeft(
           duration: 400,
-          child: CustomLinearButton(
-            width: 100,
-            onPressed: () {},
-            child: AppText(
-              text: S.of(context).language,
-              style: context.textStyle.copyWith(
-                fontWeight: FontWeight.bold,
-                fontSize: 16.sp,
-              ),
-            ),
+          child: BlocBuilder(
+            bloc: cubit,
+            builder: (context, state) {
+              return CustomLinearButton(
+                width: 100,
+                onPressed: cubit.changeLanguage,
+                child: AppText(
+                  text: S.of(context).language,
+                  style: context.textStyle.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16.sp,
+                  ),
+                ),
+              );
+            },
           ),
         ),
       ],

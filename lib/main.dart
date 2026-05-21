@@ -18,7 +18,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   // setup for dependcy injection
-  await setUp() ;
+  await setUp();
   // todo init for a shared prefreces
   await SharedPref().init();
   // todo this for observer state in bloc  pattern
@@ -34,11 +34,21 @@ void main() async {
     DeviceOrientation.portraitUp,
   ]).then(
     (_) => runApp(
-      BlocProvider(
-        create: (context) => sl<AppCubit>()
-          ..changeTheme(
-            sharedPref: SharedPref().getBool(key: PrefKey.themeMode),
+      MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => sl<AppCubit>()
+              ..changeTheme(
+                sharedPref: SharedPref().getBool(key: PrefKey.themeMode),
+              ),
           ),
+          BlocProvider(
+            create: (context) => sl<AppCubit>()
+              ..changeLanguage(
+                sharedLanguage: SharedPref().getString(key: PrefKey.language),
+              ),
+          ),
+        ],
         child: RovixStoreApp(),
       ),
     ),

@@ -34,7 +34,7 @@ class RovixStoreApp extends StatelessWidget {
               builder: (context, state) {
                 final cubit = context.read<AppCubit>();
                 return MaterialApp(
-                  locale: Locale('en'),
+                  locale: cubit.lang =='ar'? Locale('ar'): Locale('en'),
                   localizationsDelegates: [
                     S.delegate,
                     GlobalMaterialLocalizations.delegate,

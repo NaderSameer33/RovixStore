@@ -55,12 +55,13 @@ extension AppStatePatterns on AppState {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( ThemeModeChange value)?  themeModeChange,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( ThemeModeChange value)?  themeModeChange,TResult Function( LanguageChangeState value)?  languageChangeState,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial(_that);case ThemeModeChange() when themeModeChange != null:
-return themeModeChange(_that);case _:
+return themeModeChange(_that);case LanguageChangeState() when languageChangeState != null:
+return languageChangeState(_that);case _:
   return orElse();
 
 }
@@ -78,12 +79,13 @@ return themeModeChange(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( ThemeModeChange value)  themeModeChange,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( ThemeModeChange value)  themeModeChange,required TResult Function( LanguageChangeState value)  languageChangeState,}){
 final _that = this;
 switch (_that) {
 case _Initial():
 return initial(_that);case ThemeModeChange():
-return themeModeChange(_that);case _:
+return themeModeChange(_that);case LanguageChangeState():
+return languageChangeState(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -100,12 +102,13 @@ return themeModeChange(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( ThemeModeChange value)?  themeModeChange,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( ThemeModeChange value)?  themeModeChange,TResult? Function( LanguageChangeState value)?  languageChangeState,}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial(_that);case ThemeModeChange() when themeModeChange != null:
-return themeModeChange(_that);case _:
+return themeModeChange(_that);case LanguageChangeState() when languageChangeState != null:
+return languageChangeState(_that);case _:
   return null;
 
 }
@@ -122,11 +125,12 @@ return themeModeChange(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function( bool isDark)?  themeModeChange,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function( bool isDark)?  themeModeChange,TResult Function( Locale locale)?  languageChangeState,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case ThemeModeChange() when themeModeChange != null:
-return themeModeChange(_that.isDark);case _:
+return themeModeChange(_that.isDark);case LanguageChangeState() when languageChangeState != null:
+return languageChangeState(_that.locale);case _:
   return orElse();
 
 }
@@ -144,11 +148,12 @@ return themeModeChange(_that.isDark);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function( bool isDark)  themeModeChange,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function( bool isDark)  themeModeChange,required TResult Function( Locale locale)  languageChangeState,}) {final _that = this;
 switch (_that) {
 case _Initial():
 return initial();case ThemeModeChange():
-return themeModeChange(_that.isDark);case _:
+return themeModeChange(_that.isDark);case LanguageChangeState():
+return languageChangeState(_that.locale);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -165,11 +170,12 @@ return themeModeChange(_that.isDark);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function( bool isDark)?  themeModeChange,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function( bool isDark)?  themeModeChange,TResult? Function( Locale locale)?  languageChangeState,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case ThemeModeChange() when themeModeChange != null:
-return themeModeChange(_that.isDark);case _:
+return themeModeChange(_that.isDark);case LanguageChangeState() when languageChangeState != null:
+return languageChangeState(_that.locale);case _:
   return null;
 
 }
@@ -269,6 +275,72 @@ class _$ThemeModeChangeCopyWithImpl<$Res>
   return _then(ThemeModeChange(
 isDark: null == isDark ? _self.isDark : isDark // ignore: cast_nullable_to_non_nullable
 as bool,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class LanguageChangeState extends AppState {
+  const LanguageChangeState({required this.locale}): super._();
+  
+
+ final  Locale locale;
+
+/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$LanguageChangeStateCopyWith<LanguageChangeState> get copyWith => _$LanguageChangeStateCopyWithImpl<LanguageChangeState>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LanguageChangeState&&(identical(other.locale, locale) || other.locale == locale));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,locale);
+
+@override
+String toString() {
+  return 'AppState.languageChangeState(locale: $locale)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $LanguageChangeStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
+  factory $LanguageChangeStateCopyWith(LanguageChangeState value, $Res Function(LanguageChangeState) _then) = _$LanguageChangeStateCopyWithImpl;
+@useResult
+$Res call({
+ Locale locale
+});
+
+
+
+
+}
+/// @nodoc
+class _$LanguageChangeStateCopyWithImpl<$Res>
+    implements $LanguageChangeStateCopyWith<$Res> {
+  _$LanguageChangeStateCopyWithImpl(this._self, this._then);
+
+  final LanguageChangeState _self;
+  final $Res Function(LanguageChangeState) _then;
+
+/// Create a copy of AppState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? locale = null,}) {
+  return _then(LanguageChangeState(
+locale: null == locale ? _self.locale : locale // ignore: cast_nullable_to_non_nullable
+as Locale,
   ));
 }
 

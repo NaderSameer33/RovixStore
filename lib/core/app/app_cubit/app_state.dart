@@ -7,5 +7,7 @@ class AppState with _$AppState {
 
   const factory AppState.themeModeChange({required bool isDark}) =
       ThemeModeChange;
-      
+
+  const factory AppState.languageChangeState({required Locale locale}) =
+      LanguageChangeState;
 }
