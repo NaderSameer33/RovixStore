@@ -12,33 +12,38 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_localizations:
+    sdk: flutter
+
   cupertino_icons: ^1.0.8
   connectivity_plus: ^7.1.1
   flutter_dotenv: ^6.0.1
   flutter_screenutil: ^5.9.3
   firebase_core: ^4.9.0
-  flutter_localizations:
-    sdk: flutter
   animate_do: ^4.2.0
   flutter_bloc: ^9.1.1
   shared_preferences: ^2.5.3
-  freezed: ^3.2.3
+
+  freezed_annotation: null
   equatable: ^2.0.8
-  freezed_annotation: ^3.1.0
-  build_runner: ^2.15.0
   get_it: ^9.2.1
-  dio: ^5.9.2
-  retrofit: ^4.9.2
-  retrofit_generator: ^10.2.0
+
+  dio: ^5.8.0+1
+  retrofit: ">=4.7.2 <4.9.0"
   pretty_dio_logger: ^1.4.0
-  json_serializable: ^6.11.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  very_good_analysis: ^9.0.0
   flutter_lints: ^5.0.0
+  very_good_analysis: ^9.0.0
+
+  build_runner: null
+  retrofit_generator: "<10.1.2"
+  json_serializable: null
+  freezed: null
+
   flutter_launcher_icons: ^0.14.4
   flutter_native_splash: ^2.4.7
 
@@ -91,5 +96,6 @@ flutter_native_splash:
   android_12:
     color: "#FFFFFF"
     image: assets/images/launch_icon.png
+
 flutter_intl:
   enabled: true
