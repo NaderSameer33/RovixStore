@@ -45,8 +45,8 @@ class RovixStoreApp extends StatelessWidget {
                   supportedLocales: S.delegate.supportedLocales,
 
                   theme: cubit.isDark
-                      ? CustomThemeData.lightTheme
-                      : CustomThemeData.darkTheme,
+                      ? CustomThemeData.darkTheme
+                      : CustomThemeData.lightTheme,
                   onGenerateRoute: AppRoutes().onGenerateRoute,
                   home: value ? LoginView() : NoNetworkView(),
                   debugShowCheckedModeBanner: EnvVariables().depugMode,
