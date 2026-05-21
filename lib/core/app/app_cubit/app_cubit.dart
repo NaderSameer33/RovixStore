@@ -35,6 +35,7 @@ class AppCubit extends Cubit<AppState> {
       lang = sharedLanguage;
       emit(AppState.languageChangeState(locale: Locale(lang)));
     } else {
+      // toggle if lan is en covert to ar and opposite
       lang = lang == 'en' ? 'ar' : 'en';
       await SharedPref()
           .setString(key: PrefKey.language, value: lang)

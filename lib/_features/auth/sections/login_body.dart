@@ -42,7 +42,7 @@ class LoginBody extends StatelessWidget {
                 text: S.of(context).create_account,
                 style: context.textStyle.copyWith(
                   fontWeight: FontWeight.bold,
-                  fontSize: 16.sp,
+                  fontSize: 25.sp,
                   color: context.color.bluePinkLight,
                 ),
               ),

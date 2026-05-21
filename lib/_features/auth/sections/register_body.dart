@@ -47,7 +47,7 @@ class RegisterBody extends StatelessWidget {
                 text: S.of(context).you_have_account,
                 style: context.textStyle.copyWith(
                   fontWeight: FontWeight.bold,
-                  fontSize: 16.sp,
+                  fontSize: 25.sp,
                   color: context.color.bluePinkLight,
                 ),
               ),

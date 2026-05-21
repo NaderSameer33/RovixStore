@@ -22,7 +22,7 @@ class AuthInfoTitle extends StatelessWidget {
           AppText(
             text: title,
             style: context.textStyle.copyWith(
-              fontSize: 24.sp,
+              fontSize: 30.sp,
               color: context.color.textColor,
               fontWeight: FontWeight.bold,
             ),
@@ -33,7 +33,7 @@ class AuthInfoTitle extends StatelessWidget {
           AppText(
             text: decrption,
             style: context.textStyle.copyWith(
-              fontSize: 14.sp,
+              fontSize: 20.sp,
               color: context.color.textColor,
               fontWeight: FontWeight.w500,
             ),
