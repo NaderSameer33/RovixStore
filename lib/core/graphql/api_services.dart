@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:retrofit/http.dart';
+import 'package:retrofit/retrofit.dart';
 part 'api_services.g.dart';
 
 const String baseUrl = 'https://api.escuelajs.co';

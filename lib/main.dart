@@ -17,10 +17,11 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  // setup for dependcy injection
-  await setUp();
-  // todo init for a shared prefreces
   await SharedPref().init();
+
+  await setUp();
+  
+
   // todo this for observer state in bloc  pattern
   Bloc.observer = BlocObserverImplemenation();
   // todo env file for secure a baseUrl and other
